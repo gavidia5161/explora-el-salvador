@@ -26,7 +26,7 @@ Aplicación web para explorar destinos turísticos de El Salvador, desarrollada 
 
 ### 1. Clonar el repositorio
 
-git clone URL_DEL_REPOSITORIO
+git clone https://github.com/gavidia5161/explora-el-salvador.git
 
 ### 2. Entrar al proyecto
 
