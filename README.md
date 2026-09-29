@@ -1,36 +1,89 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Explora El Salvador
 
-## Getting Started
+Aplicación web para explorar destinos turísticos de El Salvador, desarrollada con Next.js, TypeScript y Supabase. Permite buscar destinos, consultar sus detalles y explorar otros lugares del mismo departamento.
 
-First, run the development server:
+## Tecnologías utilizadas
 
-```bash
+- Next.js con App Router
+- TypeScript
+- React
+- Tailwind CSS
+- Supabase
+- PostgreSQL
+
+## Funcionalidades
+
+- Mostrar destinos turísticos consultados desde Supabase.
+- Buscar destinos por nombre.
+- Consultar una página individual para cada destino.
+- Filtrar y explorar destinos por departamento.
+- Cargar los datos desde componentes del servidor.
+- Mostrar estados de carga y mensajes de error.
+- Mostrar una página personalizada para rutas inexistentes.
+- Diseño responsive para dispositivos móviles, tablets y escritorio.
+
+## Instalación
+
+### 1. Clonar el repositorio
+
+git clone URL_DEL_REPOSITORIO
+
+### 2. Entrar al proyecto
+
+cd explora-el-salvador
+
+### 3. Instalar las dependencias
+
+npm install
+
+### 4. Configurar las variables de entorno
+
+Crear un archivo `.env.local` en la raíz del proyecto y agregar las credenciales del proyecto de Supabase:
+
+NEXT_PUBLIC_SUPABASE_URL=https://TU-PROJECT-REF.supabase.co
+NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY=sb_publishable_TU_CLAVE
+
+No subir `.env.local` ni credenciales reales al repositorio.
+
+### 5. Ejecutar el proyecto
+
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Luego abrir `http://localhost:3000`.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Build para producción
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Para generar una versión optimizada para producción:
 
-## Learn More
+npm run build
 
-To learn more about Next.js, take a look at the following resources:
+Para iniciar la versión de producción localmente:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+npm run start
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Next.js guarda los archivos generados en `.next`.
 
-## Deploy on Vercel
+## Estructura principal
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+explora-el-salvador/
+├── app/
+│   ├── destinos/
+│   │   ├── [slug]/
+│   │   └── page.tsx
+│   ├── departamentos/
+│   │   └── [departamento]/
+│   ├── loading.tsx
+│   ├── error.tsx
+│   └── not-found.tsx
+├── utils/
+│   └── supabase/
+│       ├── client.ts
+│       └── server.ts
+├── package.json
+└── README.md
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Base de datos
+
+Los destinos se guardan en la tabla `destinos` de Supabase. La tabla contiene los campos `id`, `slug`, `nombre`, `departamento`, `descripcion` y `created_at`.
+
+La tabla tiene Row Level Security (RLS) habilitado y una política que permite la lectura pública de los destinos.
