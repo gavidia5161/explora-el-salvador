@@ -87,3 +87,7 @@ explora-el-salvador/
 Los destinos se guardan en la tabla `destinos` de Supabase. La tabla contiene los campos `id`, `slug`, `nombre`, `departamento`, `descripcion` y `created_at`.
 
 La tabla tiene Row Level Security (RLS) habilitado y una política que permite la lectura pública de los destinos.
+
+## Sitio en producción
+
+https://explora-el-salvador.vercel.app
